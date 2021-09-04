@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ANDR1_Group_8">
         <activity
+            android:name=".activity_schedule"
+            android:exported="true" />
+        <activity
             android:name=".People"
             android:exported="true"
             android:label="@string/title_activity_people"
