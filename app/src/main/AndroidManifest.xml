@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ANDR1_Group_8">
+        <activity android:name=".Home"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".People"
-            android:exported="true"
-            android:label="@string/title_activity_people"
-            android:theme="@style/Theme.ANDR1_Group_8.NoActionBar" />
-        <activity
-            android:name=".activity_schedule"
-            android:exported="true" />
+            android:name=".activity_schedule" />
     </application>
 
 </manifest>

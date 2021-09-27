@@ -5,14 +5,15 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".people_main">
+    tools:context=".peopleFragment"
+    tools:ignore="LabelFor">
 
     <Button
         android:id="@+id/btn_students"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Students"
+        android:text="@string/students"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.284"
@@ -27,7 +28,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="96dp"
-        android:text="Teachers"
+        android:text="@string/teachers"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,7 +40,7 @@
         android:id="@+id/tv_title"
         android:layout_width="122dp"
         android:layout_height="35dp"
-        android:text="People"
+        android:text="@string/people"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,22 +56,25 @@
         android:layout_height="48dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Search (hold for advanced search)"
+        android:text="@string/search_hold_for_advanced_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        app:layout_constraintVertical_bias="0.104" />
+        app:layout_constraintVertical_bias="0.104"
+        android:importantForAutofill="no" />
 
     <ScrollView
         android:id="@+id/sv_searchResults"
-        android:layout_width="335dp"
-        android:layout_height="364dp"
+        android:layout_width="336dp"
+        android:layout_height="318dp"
+        android:background="#65A793AF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_students"
-        app:layout_constraintVertical_bias="0.652"
+        app:layout_constraintVertical_bias="0.301"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout

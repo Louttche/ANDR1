@@ -1,5 +1,6 @@
 package com.example.andr1_group_8;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,10 +14,10 @@ import android.widget.ScrollView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link people_main#newInstance} factory method to
+ * Use the {@link peopleFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class people_main extends Fragment {
+public class peopleFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,8 +27,9 @@ public class people_main extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private FragmentManager supportFragmentManager;
 
-    public people_main() {
+    public peopleFragment() {
         // Required empty public constructor
     }
 
@@ -40,8 +42,8 @@ public class people_main extends Fragment {
      * @return A new instance of fragment people_main.
      */
     // TODO: Rename and change types and number of parameters
-    public static people_main newInstance(String param1, String param2) {
-        people_main fragment = new people_main();
+    public static peopleFragment newInstance(String param1, String param2) {
+        peopleFragment fragment = new peopleFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -56,6 +58,10 @@ public class people_main extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        //NavHostFragment navHostFragment =
+                //(NavHostFragment) supportFragmentManager.findFragmentById(R.id.nav_host_fragment);
+        //NavController navController = navHostFragment.getNavController();
     }
 
     @Override
@@ -64,7 +70,7 @@ public class people_main extends Fragment {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_people_main, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_people_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_people, container, false);
         Button student_button = (Button) view.findViewById(R.id.btn_students);
         Button teacher_button = (Button) view.findViewById(R.id.btn_students);
         EditText search_box = (EditText) view.findViewById(R.id.et_search);
