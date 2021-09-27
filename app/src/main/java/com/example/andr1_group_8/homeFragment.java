@@ -1,17 +1,20 @@
 package com.example.andr1_group_8;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavDirections;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,20 +76,19 @@ public class homeFragment extends Fragment {
         people_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+
+                // Hide this fragment's layout
+                //v.findViewById(R.id.home_layout).setVisibility(View.INVISIBLE);
+
+                getParentFragmentManager().beginTransaction()
+                        //.add(R.id.fragment_nav_host, peopleFragment.class, null)
+                        //.hide(this) // getParentFragmentManager().findFragmentById(R.id.homeFragment)
+                        .commit();
+
+                // Navigates to correct fragment
                 NavDirections action =
                         homeFragmentDirections.actionHomeFragmentToPeopleFragment();
                 Navigation.findNavController(view).navigate(action);
-
-                // TODO: Replace existing fragment (opacity)
-
-                //FragmentManager fm = getFragmentManager();
-                //fm.beginTransaction()
-                //        .show(new peopleFragment())
-                //        .commit();
-
-                //final FragmentTransaction ft = getFragmentManager().beginTransaction();
-                //ft.replace(R.id.homeFragment, new peopleFragment());
-                //ft.commit();
 
             }
         });
@@ -95,6 +97,7 @@ public class homeFragment extends Fragment {
         schedule_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 NavDirections action =
                         homeFragmentDirections.actionHomeFragmentToActivitySchedule();
                 Navigation.findNavController(view).navigate(action);

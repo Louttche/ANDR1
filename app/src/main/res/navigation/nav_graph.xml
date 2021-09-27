@@ -11,10 +11,14 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_peopleFragment"
-            app:destination="@id/peopleFragment" />
+            app:destination="@id/peopleFragment"
+            app:popUpTo="@id/peopleFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homeFragment_to_activity_schedule"
-            app:destination="@id/activity_schedule" />
+            app:destination="@id/activity_schedule"
+            app:popUpTo="@id/activity_schedule"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/peopleFragment"

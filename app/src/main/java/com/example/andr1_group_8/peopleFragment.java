@@ -58,10 +58,6 @@ public class peopleFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        //NavHostFragment navHostFragment =
-                //(NavHostFragment) supportFragmentManager.findFragmentById(R.id.nav_host_fragment);
-        //NavController navController = navHostFragment.getNavController();
     }
 
     @Override
