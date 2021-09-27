@@ -19,4 +19,8 @@
     <string name="search_hold_for_advanced_search">Search (hold for advanced search)</string>
     <string name="home">HOME</string>
     <string name="schedule">schedule</string>
+    <string name="view_people">View People</string>
+    <string name="change_class">Change class</string>
+    <string name="e_b71">E-B71</string>
+    <string name="background">background</string>
 </resources>

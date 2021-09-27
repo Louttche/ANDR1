@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.andr1_group_8.homeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_peopleFragment"
@@ -19,15 +19,24 @@
             app:destination="@id/activity_schedule"
             app:popUpTo="@id/activity_schedule"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment"
+            app:popUpTo="@id/scheduleFragment" />
     </fragment>
     <fragment
         android:id="@+id/peopleFragment"
         android:name="com.example.andr1_group_8.peopleFragment"
-        android:label="fragment_people"
+        android:label="People"
         tools:layout="@layout/fragment_people" />
     <activity
         android:id="@+id/activity_schedule"
         android:name="com.example.andr1_group_8.activity_schedule"
         android:label="activity_schedule"
         tools:layout="@layout/activity_schedule" />
+    <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.example.andr1_group_8.scheduleFragment"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule" />
 </navigation>

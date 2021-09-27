@@ -5,80 +5,88 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_surface"
     tools:context=".peopleFragment"
-    tools:ignore="LabelFor">
+    tools:ignore="LabelFor"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-49dp">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="410dp"
+        android:layout_height="550dp"
+        android:layout_marginBottom="200dp"
+        android:src="@android:drawable/screen_background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_students"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/students"
-        app:layout_constraintBottom_toBottomOf="@+id/sv_searchResults"
+        app:layout_constraintBottom_toTopOf="@+id/sv_searchResults"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintHorizontal_bias="0.27"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintTop_toBottomOf="@+id/et_search"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_teachers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/teachers"
-        app:layout_constraintBottom_toBottomOf="@+id/sv_searchResults"
+        app:layout_constraintBottom_toTopOf="@+id/sv_searchResults"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.715"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        app:layout_constraintVertical_bias="0.183" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="122dp"
-        android:layout_height="35dp"
-        android:text="@string/people"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintTop_toBottomOf="@+id/et_search"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/et_search"
         android:layout_width="293dp"
         android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="80dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:text="@string/search_hold_for_advanced_search"
-        app:layout_constraintBottom_toBottomOf="@+id/sv_searchResults"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ScrollView
         android:id="@+id/sv_searchResults"
-        android:layout_width="290dp"
-        android:layout_height="306dp"
+        android:layout_width="300dp"
+        android:layout_height="314dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="200dp"
         android:background="#65A793AF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.924"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:id="@+id/ll_results"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="221dp" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

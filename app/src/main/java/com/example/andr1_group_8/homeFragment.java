@@ -72,37 +72,26 @@ public class homeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         // UI Elements
-        Button people_button = (Button) view.findViewById(R.id.btn_people);
-        people_button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
+        //Button people_button = (Button) view.findViewById(R.id.btn_people);
+        //people_button.setOnClickListener(new View.OnClickListener(){
+            //@Override
+            //public void onClick(View v){
 
                 // Hide this fragment's layout
                 //v.findViewById(R.id.home_layout).setVisibility(View.INVISIBLE);
 
-                getParentFragmentManager().beginTransaction()
+                //getParentFragmentManager().beginTransaction()
                         //.add(R.id.fragment_nav_host, peopleFragment.class, null)
                         //.hide(this) // getParentFragmentManager().findFragmentById(R.id.homeFragment)
-                        .commit();
+                        //.commit();
 
                 // Navigates to correct fragment
-                NavDirections action =
-                        homeFragmentDirections.actionHomeFragmentToPeopleFragment();
-                Navigation.findNavController(view).navigate(action);
+                //NavDirections action =
+                //        homeFragmentDirections.actionHomeFragmentToPeopleFragment();
+                //Navigation.findNavController(view).navigate(action);
 
-            }
-        });
-
-        Button schedule_button = (Button) view.findViewById(R.id.btn_schedule);
-        schedule_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                NavDirections action =
-                        homeFragmentDirections.actionHomeFragmentToActivitySchedule();
-                Navigation.findNavController(view).navigate(action);
-            }
-        });
+            //}
+        //});
 
         return view;
 
