@@ -10,7 +10,6 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_people">People</string>
-    <string name="textview">TextView</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="students">Students</string>
@@ -25,4 +24,6 @@
     <string name="background">background</string>
     <string name="people_photo">people_photo</string>
     <string name="people_icon">people_icon</string>
+    <string name="textview">TextView</string>
+    <string name="wowieee">wowieee</string>
 </resources>

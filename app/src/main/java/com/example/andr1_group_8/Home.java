@@ -8,14 +8,26 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Home extends AppCompatActivity {
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Scanner;
+
+public class Home extends AppCompatActivity implements TokenFragment.OnFragmentInteractionListener {
+
+    private String current_token;
 
     public Home() {
         super(R.layout.activity_home);
@@ -34,19 +46,9 @@ public class Home extends AppCompatActivity {
                     .commit();
         }
 
-        // set up collapsing toolbar
-        //CollapsingToolbarLayout layout = findViewById(R.id.collapsing_toolbar_layout);
-        //Toolbar toolbar = findViewById(R.id.tb_topNavBar);
-
         NavHostFragment navHostFragment =
                 (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_nav_host);
         NavController navController = navHostFragment.getNavController();
-
-        // Set up toolbar widget as navigation bar
-        //AppBarConfiguration appBarConfiguration =
-                //new AppBarConfiguration.Builder(navController.getGraph())
-                        //.setFallbackOnNavigateUpListener(this::onSupportNavigateUp)
-                        //.build();
 
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
 
@@ -97,5 +99,16 @@ public class Home extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         } */
+    }
+
+    @Override
+    public void onFragmentInteraction(String token) {
+        TextView tv_t = (TextView) findViewById(R.id.tv_token);
+        tv_t.setText(token);
+        this.current_token = token;
+    }
+
+    public String getCurrent_token() {
+        return current_token;
     }
 }

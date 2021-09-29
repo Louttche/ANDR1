@@ -9,11 +9,13 @@ public class People {
     private String firstName;
     private String lastName;
     private Icon photo;
+    private String email;
 
     public People(String firstname, String lastname, Icon photo){
         this.firstName = firstname;
         this.lastName = lastname;
         this.photo = photo;
+        this.email = "wow@gmail.com";
     }
 
     public Icon getPhoto() {
@@ -42,5 +44,14 @@ public class People {
 
     public String getFullName() {
         return firstName + " " + lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        // TODO: Check for valid email address
+        this.email = email;
     }
 }

@@ -38,6 +38,16 @@
             app:layout_constraintVertical_bias="1.0"
             app:menu="@menu/menu_bottom_nav" />
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentToken"
+            android:name="com.example.andr1_group_8.TokenFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <!-- <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,6 +85,16 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_token"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/placeholder" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_nav_host"
