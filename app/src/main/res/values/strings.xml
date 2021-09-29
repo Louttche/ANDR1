@@ -23,4 +23,6 @@
     <string name="change_class">Change class</string>
     <string name="e_b71">E-B71</string>
     <string name="background">background</string>
+    <string name="people_photo">people_photo</string>
+    <string name="people_icon">people_icon</string>
 </resources>

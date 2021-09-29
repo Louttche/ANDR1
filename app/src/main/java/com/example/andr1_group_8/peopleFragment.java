@@ -1,8 +1,10 @@
 package com.example.andr1_group_8;
 
 import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -10,43 +12,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ScrollView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link peopleFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
 public class peopleFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Context context;
     private FragmentManager supportFragmentManager;
 
     public peopleFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment people_main.
-     */
-    // TODO: Rename and change types and number of parameters
     public static peopleFragment newInstance(String param1, String param2) {
         peopleFragment fragment = new peopleFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,10 +37,6 @@ public class peopleFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -70,8 +49,31 @@ public class peopleFragment extends Fragment {
         Button student_button = (Button) view.findViewById(R.id.btn_students);
         Button teacher_button = (Button) view.findViewById(R.id.btn_students);
         EditText search_box = (EditText) view.findViewById(R.id.et_search);
-        ScrollView results_list = (ScrollView) view.findViewById(R.id.sv_searchResults);
+
+        // List of people
+        ListView people_list = (ListView) view.findViewById(R.id.lv_people);
+        people_list.setAdapter(new PeopleAdapter(context, getPeople()));
 
         return view;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        this.context = context;
+    }
+
+    public List<People> getPeople(){
+        List<People> temp_pList = new ArrayList<>();
+
+        // Dummy Data
+        temp_pList.add(new People("John", "Smeeth", null));
+        temp_pList.add(new People("Maria", "Burgers", null));
+        temp_pList.add(new People("Julia", "Rohurts", null));
+        temp_pList.add(new People("Eric", "Gothernburg", null));
+        temp_pList.add(new People("Jesus", "Christ", null));
+
+        return  temp_pList;
     }
 }
