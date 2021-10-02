@@ -52,8 +52,8 @@
 
     <ListView
         android:id="@+id/lv_people"
-        android:layout_width="352dp"
-        android:layout_height="514dp"
+        android:layout_width="345dp"
+        android:layout_height="402dp"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"

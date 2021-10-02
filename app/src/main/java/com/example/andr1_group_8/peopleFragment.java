@@ -2,6 +2,8 @@ package com.example.andr1_group_8;
 
 import android.app.FragmentManager;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,11 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -164,8 +168,9 @@ public class peopleFragment extends Fragment {
             String firstName = personObject.getString("givenName");
             String lastName = personObject.getString("surName");
             String email = personObject.getString("mail");
+            String photo = personObject.getString("photo");
 
-            People person = new People(firstName, lastName, email);
+            People person = new People(firstName, lastName, email, photo);
             parsedPeople.add(person);
         }
 
