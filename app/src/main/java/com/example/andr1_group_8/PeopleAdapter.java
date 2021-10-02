@@ -57,8 +57,8 @@ public class PeopleAdapter extends BaseAdapter {
 
         // Look up the value to be displayed and show in TextView
         tvName.setText(getItem(i).getFullName());
-        if (getItem(i).getPhoto() != null)
-            tvImage.setImageIcon(getItem(i).getPhoto());
+//        if (getItem(i).getPhoto() != null)
+//            tvImage.setImageIcon(getItem(i).getPhoto());
 
         // Other work...
 

@@ -8,23 +8,14 @@ public class People {
 
     private String firstName;
     private String lastName;
-    private Icon photo;
     private String email;
 
-    public People(String firstname, String lastname, Icon photo){
+    public People(String firstname, String lastname, String email){
         this.firstName = firstname;
         this.lastName = lastname;
-        this.photo = photo;
-        this.email = "wow@gmail.com";
+        this.email = email;
     }
 
-    public Icon getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(Icon photo) {
-        this.photo = photo;
-    }
 
     public String getLastName() {
         return lastName;

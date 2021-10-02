@@ -3,12 +3,13 @@ package com.example.andr1_group_8;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,15 +28,22 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class peopleFragment extends Fragment {
 
     private Context context;
     private FragmentManager supportFragmentManager;
     private List<People> peopleList = new ArrayList<>();
+    private View view;
+
+    private Button searchButton;
+    private Button clearButton;
+    private EditText search_box;
+    private TextView peopleCountText;
 
     public peopleFragment() {
         // Required empty public constructor
@@ -57,19 +67,40 @@ public class peopleFragment extends Fragment {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_people_main, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_people, container, false);
-        Button student_button = (Button) view.findViewById(R.id.btn_students);
-        Button teacher_button = (Button) view.findViewById(R.id.btn_students);
-        EditText search_box = (EditText) view.findViewById(R.id.et_search);
-
-        // List of people
-        ListView people_list = (ListView) view.findViewById(R.id.lv_people);
-        people_list.setAdapter(new PeopleAdapter(context, getPeople()));
+        view = inflater.inflate(R.layout.fragment_people, container, false);
+        searchButton = (Button) view.findViewById(R.id.btn_search);
+        clearButton = (Button) view.findViewById(R.id.btn_clear);
+        search_box = (EditText) view.findViewById(R.id.et_search);
+        peopleCountText = (TextView) view.findViewById(R.id.peopleCountText);
 
         Home mainActivity = (Home) this.getActivity();
         new JSONTask_GetPeople().execute(mainActivity.getCurrent_token());
 
+        searchButton.setOnClickListener(searchPeople());
+        clearButton.setOnClickListener(clearFilter());
+
         return view;
+    }
+
+    private View.OnClickListener searchPeople() {
+        return new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            public void onClick(View v) {
+                String searchQuery = search_box.getText().toString().toLowerCase();
+                List<People> filteredPeople = peopleList.stream().filter(p -> p.getFullName().toLowerCase().contains(searchQuery)).collect(Collectors.toList());
+                displayInList(filteredPeople);
+            }
+        };
+    }
+
+    private View.OnClickListener clearFilter() {
+        return new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            public void onClick(View v) {
+                search_box.setText("");
+                displayInList(peopleList);
+            }
+        };
     }
 
     @Override
@@ -77,19 +108,6 @@ public class peopleFragment extends Fragment {
         super.onAttach(context);
 
         this.context = context;
-    }
-
-    public List<People> getPeople(){
-        List<People> temp_pList = new ArrayList<>();
-
-        // Dummy Data
-        temp_pList.add(new People("John", "Smeeth", null));
-        temp_pList.add(new People("Maria", "Burgers", null));
-        temp_pList.add(new People("Julia", "Rohurts", null));
-        temp_pList.add(new People("Eric", "Gothernburg", null));
-        temp_pList.add(new People("Jesus", "Christ", null));
-
-        return  temp_pList;
     }
 
 
@@ -125,18 +143,38 @@ public class peopleFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            peopleList = ParsePeopleJson(s);
+            try {
+                peopleList = ParsePeopleJson(s);
+                // List of people
+                displayInList(peopleList);
+            } catch (JSONException e) {
+                System.out.println("Error reading people JSON");
+                System.out.println(e.toString());
+            }
         }
     }
 
-    private List<People> ParsePeopleJson(String people_json){
-        List<People> temp_people = new ArrayList<>();
+    private List<People> ParsePeopleJson(String people_json) throws JSONException {
+        List<People> parsedPeople = new ArrayList<>();
+        JSONArray jsonArray = new JSONArray(people_json);
 
-        Log.d("people", String.valueOf(people_json.length()));
-        Log.d("people", people_json);
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject personObject = jsonArray.getJSONObject(i);
 
-        // TODO: Parse it to People object
+            String firstName = personObject.getString("givenName");
+            String lastName = personObject.getString("surName");
+            String email = personObject.getString("mail");
 
-        return null;
+            People person = new People(firstName, lastName, email);
+            parsedPeople.add(person);
+        }
+
+        return parsedPeople;
+    }
+
+    private void displayInList(List<People> people) {
+        ListView people_list = (ListView) view.findViewById(R.id.lv_people);
+        people_list.setAdapter(new PeopleAdapter(context, people));
+        peopleCountText.setText("(" + people.size() + ")");
     }
 }

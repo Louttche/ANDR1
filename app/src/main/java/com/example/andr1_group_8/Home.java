@@ -103,8 +103,8 @@ public class Home extends AppCompatActivity implements TokenFragment.OnFragmentI
 
     @Override
     public void onFragmentInteraction(String token) {
-        TextView tv_t = (TextView) findViewById(R.id.tv_token);
-        tv_t.setText(token);
+//        TextView tv_t = (TextView) findViewById(R.id.tv_token);
+//        tv_t.setText(token);
         this.current_token = token;
     }
 
