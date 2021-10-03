@@ -23,6 +23,11 @@
             android:id="@+id/action_homeFragment_to_scheduleFragment"
             app:destination="@id/scheduleFragment"
             app:popUpTo="@id/scheduleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_readJson2"
+            app:destination="@id/readJson2"
+            app:popUpTo="@id/readJson2"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/peopleFragment"
@@ -39,4 +44,9 @@
         android:name="com.example.andr1_group_8.scheduleFragment"
         android:label="fragment_schedule"
         tools:layout="@layout/fragment_schedule" />
+    <activity
+        android:id="@+id/readJson2"
+        android:name="com.example.andr1_group_8.ReadJson"
+        android:label="activity_read_json"
+        tools:layout="@layout/activity_read_json" />
 </navigation>

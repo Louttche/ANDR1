@@ -2,8 +2,13 @@ package com.example.andr1_group_8;
 
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.os.AsyncTask;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +19,10 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class PeopleAdapter extends BaseAdapter {
@@ -21,7 +30,7 @@ public class PeopleAdapter extends BaseAdapter {
     private List<People> peopleList;
     private LayoutInflater layoutInflater;
 
-    public PeopleAdapter(Context mContext, List<People> mPeopleList){
+    public PeopleAdapter(Context mContext, List<People> mPeopleList) {
         this.peopleList = mPeopleList;
 
         layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -46,23 +55,25 @@ public class PeopleAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         // Create the new child view by inflation
-        if (view == null){
+        if (view == null) {
             // Without recycling
             view = layoutInflater.inflate(R.layout.adapter_people, viewGroup, false);
         }
 
+
         // Get the relevant Views out of Child View
         TextView tvName = (TextView) view.findViewById(R.id.tv_pName);
-        ImageView tvImage = (ImageView) view.findViewById(R.id.iv_pPhoto);
+        TextView tvEmail = (TextView) view.findViewById(R.id.tv_email);
+//        ImageView tvImage = (ImageView) view.findViewById(R.id.iv_pPhoto);
 
         // Look up the value to be displayed and show in TextView
-        tvName.setText(getItem(i).getFullName());
-        if (getItem(i).getPhoto() != null)
-            tvImage.setImageIcon(getItem(i).getPhoto());
+        People person = getItem(i);
+        tvName.setText(person.getFullName());
+        tvEmail.setText(person.getEmail());
+        String image = person.getPhoto();
 
-        // Other work...
+        //Image doesn't work.
 
-        // Return the child View
         return view;
     }
 }

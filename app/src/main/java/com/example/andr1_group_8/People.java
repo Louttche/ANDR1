@@ -8,23 +8,16 @@ public class People {
 
     private String firstName;
     private String lastName;
-    private Icon photo;
     private String email;
+    private String photo;
 
-    public People(String firstname, String lastname, Icon photo){
+    public People(String firstname, String lastname, String email, String photo){
         this.firstName = firstname;
         this.lastName = lastname;
-        this.photo = photo;
-        this.email = "wow@gmail.com";
-    }
-
-    public Icon getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(Icon photo) {
+        this.email = email;
         this.photo = photo;
     }
+
 
     public String getLastName() {
         return lastName;
@@ -53,5 +46,13 @@ public class People {
     public void setEmail(String email) {
         // TODO: Check for valid email address
         this.email = email;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }
