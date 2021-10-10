@@ -1,5 +1,6 @@
 package com.example.andr1_group_8;
 
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.media.Image;
 import android.widget.ImageView;
@@ -9,9 +10,9 @@ public class People {
     private String firstName;
     private String lastName;
     private String email;
-    private String photo;
+    private Drawable photo;
 
-    public People(String firstname, String lastname, String email, String photo){
+    public People(String firstname, String lastname, String email, Drawable photo){
         this.firstName = firstname;
         this.lastName = lastname;
         this.email = email;
@@ -48,11 +49,11 @@ public class People {
         this.email = email;
     }
 
-    public String getPhoto() {
+    public Drawable getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(Drawable photo) {
         this.photo = photo;
     }
 }

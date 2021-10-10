@@ -2,23 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.andr1_group_8.MainActivity">
-    <item
+    <!--<item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:title="Canvas"
+        app:showAsAction="never" /> -->
     <item
-        android:id="@+id/peopleFragment"
+        android:id="@+id/log_out"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="People" />
-
-    <item
-        android:id="@+id/activity_schedule"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Schedule - Activity" />
-
-    <item
-        android:id="@+id/scheduleFragment"
-        android:icon="@drawable/ic_schedule"
-        android:title="Schedule - Fragment" />
+        android:title="Log-out" />
 </menu>

@@ -10,8 +10,4 @@
         android:icon="@drawable/ic_schedule"
         android:title="" />
 
-    <item
-        android:id="@+id/activity_schedule"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Activity" />
 </menu>

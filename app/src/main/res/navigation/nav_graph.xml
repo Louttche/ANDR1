@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.andr1_group_8.homeFragment"
@@ -12,21 +13,22 @@
         <action
             android:id="@+id/action_homeFragment_to_peopleFragment"
             app:destination="@id/peopleFragment"
-            app:popUpTo="@id/peopleFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_homeFragment_to_activity_schedule"
-            app:destination="@id/activity_schedule"
-            app:popUpTo="@id/activity_schedule"
+            app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homeFragment_to_scheduleFragment"
             app:destination="@id/scheduleFragment"
-            app:popUpTo="@id/scheduleFragment" />
+            app:popUpTo="@id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_readJson2"
             app:destination="@id/readJson2"
             app:popUpTo="@id/readJson2"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_authActivity"
+            app:destination="@id/authActivity"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/nav_graph_auth"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -34,11 +36,6 @@
         android:name="com.example.andr1_group_8.peopleFragment"
         android:label="People"
         tools:layout="@layout/fragment_people" />
-    <activity
-        android:id="@+id/activity_schedule"
-        android:name="com.example.andr1_group_8.activity_schedule"
-        android:label="activity_schedule"
-        tools:layout="@layout/activity_schedule" />
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.example.andr1_group_8.scheduleFragment"
@@ -49,4 +46,9 @@
         android:name="com.example.andr1_group_8.ReadJson"
         android:label="activity_read_json"
         tools:layout="@layout/activity_read_json" />
+    <activity
+        android:id="@+id/authActivity"
+        android:name="com.example.andr1_group_8.AuthActivity"
+        android:label="activity_auth"
+        tools:layout="@layout/activity_auth" />
 </navigation>

@@ -3,6 +3,7 @@
     package="com.example.andr1_group_8">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!--<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/> -->
 
     <application
         android:allowBackup="true"
@@ -11,11 +12,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ANDR1_Group_8">
+
+        <service
+            android:name=".dataService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity
+            android:name=".AuthActivity"
+            android:exported="true"
+            android:label="@string/title_activity_auth"
+            android:theme="@style/Theme.ANDR1_Group_8.NoActionBar" />
+
         <activity
             android:name=".ReadJson"
             android:exported="true" />
+
         <activity
-            android:name=".Home"
+            android:name=".HomeActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustNothing">
             <intent-filter>
@@ -24,7 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_schedule" />
     </application>
 
 </manifest>

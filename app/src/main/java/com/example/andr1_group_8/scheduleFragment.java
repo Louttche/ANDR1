@@ -23,16 +23,11 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -126,8 +121,8 @@ public class scheduleFragment extends Fragment {
         weekdayNames.add("Saturday");
         weekdayNames.add("Sunday");
 
-        Home mainActivity = (Home) this.getActivity();
-        new JSONTask_GetSchedule().execute(mainActivity.getCurrent_token());
+        HomeActivity homeActivity = (HomeActivity) this.getActivity();
+        new JSONTask_GetSchedule().execute(homeActivity.getCurrent_token());
         displayInList(scheduleItems);
 
         return view;

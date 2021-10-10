@@ -12,11 +12,21 @@
     <!-- app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toStartOf="@+id/textView" -->
 
+    <ImageView
+        android:id="@+id/iv_background2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@android:drawable/screen_background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_scheduleTitle"
         android:layout_width="300dp"
         android:layout_height="46dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="This weeks schedule"
         android:textAlignment="viewStart"
         android:textSize="24sp"
@@ -27,13 +37,21 @@
 
     <ListView
         android:id="@+id/lv_schedule"
-        android:layout_width="373dp"
-        android:layout_height="507dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="15dp"
+        android:layout_width="379dp"
+        android:layout_height="336dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_scheduleTitle" />
+
+    <Button
+        android:id="@+id/btn_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="View Calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_schedule" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

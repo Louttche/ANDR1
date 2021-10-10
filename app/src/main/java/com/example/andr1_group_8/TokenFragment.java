@@ -58,7 +58,7 @@ public class TokenFragment extends Fragment {
 
         WebView web = (WebView) ll.findViewById(R.id.webv_fr);
         web.getSettings().setJavaScriptEnabled(true);
-//        android.webkit.CookieManager.getInstance().removeAllCookie();
+        //android.webkit.CookieManager.getInstance().removeAllCookie();
 
         web.setWebViewClient(new WebViewClient() {
 

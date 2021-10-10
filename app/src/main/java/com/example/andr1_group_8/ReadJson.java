@@ -23,7 +23,7 @@ public class ReadJson extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_json);
-        popualateListView();
+        populateListView();
     }
 
     private List<String> readJson() throws IOException, JSONException {
@@ -56,7 +56,7 @@ public class ReadJson extends AppCompatActivity {
         return subjectList;
     }
 
-    private void popualateListView () {
+    private void populateListView() {
         lv = (ListView) findViewById(R.id.json_lv);
 
         // Instanciating an array list (you don't need to do this,

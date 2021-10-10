@@ -14,9 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.ANDR1_Group_8.NoActionBar">
+    <style name="Theme.ANDR1_Group_8.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
     </style>
 
     <style name="Theme.ANDR1_Group_8.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
