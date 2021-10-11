@@ -37,7 +37,6 @@ public class AuthActivity extends AppCompatActivity implements TokenFragment
                 (NavHostFragment) getSupportFragmentManager()
                         .findFragmentById(R.id.nav_host_fragment_auth);
         NavController navController = navHostFragment.getNavController();
-
     }
 
     @Override

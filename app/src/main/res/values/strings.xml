@@ -20,10 +20,8 @@
     <string name="view_people">View People</string>
     <string name="change_class">Change class</string>
     <string name="e_b71">E-B71</string>
-    <string name="background">background</string>
     <string name="people_photo">people_photo</string>
     <string name="people_icon">people_icon</string>
-    <string name="textview">TextView</string>
     <string name="title_activity_auth">AuthActivity</string>
     <string name="welcome">Welcome</string>
     <string name="login">login</string>
@@ -34,4 +32,10 @@
     <string name="fontysimage">fontysimage</string>
     <string name="fontyslogo">fontyslogo</string>
     <string name="welcome_to_fontys_companion_app">Welcome to Fontys Companion App!</string>
+    <string name="title">Title</string>
+    <string name="thumbnail">thumbnail</string>
+    <string name="textview">TextView</string>
+    <string name="news">NEWS</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="background">background</string>
 </resources>

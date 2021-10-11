@@ -1,11 +1,5 @@
 package com.example.andr1_group_8;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.Icon;
-import android.media.Image;
-import android.widget.ImageView;
-
 public class People {
 
     private String firstName;

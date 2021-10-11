@@ -1,18 +1,8 @@
 package com.example.andr1_group_8;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -20,11 +10,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
 import com.example.andr1_group_8.dataService.dataServiceBinder;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity implements TokenFragment
         .OnFragmentInteractionListener {
@@ -38,6 +33,7 @@ public class HomeActivity extends AppCompatActivity implements TokenFragment
 
     boolean mdataServiceBound = false;
     public dataService mdataService;
+    public homeFragment mainFragment;
 
     String current_token;
 
@@ -73,7 +69,6 @@ public class HomeActivity extends AppCompatActivity implements TokenFragment
         super.onStart();
         // Set up data service
         Intent intent = new Intent(this, dataService.class);
-        //finish();
         bindService(intent, mServiceConnection, Context.BIND_AUTO_CREATE);
     }
 

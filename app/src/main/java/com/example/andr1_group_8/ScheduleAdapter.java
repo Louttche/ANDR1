@@ -15,8 +15,8 @@ public class ScheduleAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
 
 
-    public ScheduleAdapter(Context mContext, List<ScheduleItem> mPeopleList) {
-        this.scheduleList = mPeopleList;
+    public ScheduleAdapter(Context mContext, List<ScheduleItem> mScheduleList) {
+        this.scheduleList = mScheduleList;
         layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 

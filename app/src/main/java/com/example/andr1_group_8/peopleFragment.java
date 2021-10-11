@@ -21,8 +21,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -114,10 +116,8 @@ public class peopleFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-
         this.context = context;
     }
-
 
     private class JSONTask_GetPeople extends AsyncTask<String, Void, String> {
         @Override
@@ -173,10 +173,6 @@ public class peopleFragment extends Fragment {
             String lastName = personObject.getString("surName");
             String email = personObject.getString("mail");
             String photo = personObject.getString("photo");
-
-            //TODO: Get actual photo of person + convert photo string to Drawable
-            Drawable dummy_photo = getResources().getDrawable(R.drawable.person_photo);
-            //Bitmap dummy_photo_bm = BitmapFactory.decodeResource(getResources(), R.drawable.person_photo);
 
             People person = new People(firstName, lastName, email, photo);
             parsedPeople.add(person);

@@ -13,8 +13,7 @@
         <action
             android:id="@+id/action_homeFragment_to_peopleFragment"
             app:destination="@id/peopleFragment"
-            app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/homeFragment" />
         <action
             android:id="@+id/action_homeFragment_to_scheduleFragment"
             app:destination="@id/scheduleFragment"
