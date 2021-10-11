@@ -35,10 +35,9 @@ public class HomeActivity extends AppCompatActivity implements TokenFragment
 
     HomeActivity activityReference;
     AppBarConfiguration appBarConfiguration;
+
     boolean mdataServiceBound = false;
     public dataService mdataService;
-
-
 
     String current_token;
 

@@ -29,4 +29,9 @@
     <string name="login">login</string>
     <string name="service">Service</string>
     <string name="todo">TODO</string>
+    <string name="this_weeks_schedule">This weeks schedule</string>
+    <string name="view_calendar">View Calendar</string>
+    <string name="fontysimage">fontysimage</string>
+    <string name="fontyslogo">fontyslogo</string>
+    <string name="welcome_to_fontys_companion_app">Welcome to Fontys Companion App!</string>
 </resources>

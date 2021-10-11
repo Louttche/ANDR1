@@ -1,8 +1,12 @@
 package com.example.andr1_group_8;
 
-import android.app.FragmentManager;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,11 +30,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -36,12 +47,9 @@ import java.util.stream.Collectors;
 public class peopleFragment extends Fragment {
 
     private Context context;
-    private FragmentManager supportFragmentManager;
     private List<People> peopleList = new ArrayList<>();
     private View view;
 
-    private Button searchButton;
-    private Button clearButton;
     private EditText search_box;
     private TextView peopleCountText;
 
@@ -66,15 +74,15 @@ public class peopleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_people_main, container, false);
-
         view = inflater.inflate(R.layout.fragment_people, container, false);
-        searchButton = (Button) view.findViewById(R.id.btn_search);
-        clearButton = (Button) view.findViewById(R.id.btn_clear);
+        Button searchButton = (Button) view.findViewById(R.id.btn_search);
+        Button clearButton = (Button) view.findViewById(R.id.btn_clear);
         search_box = (EditText) view.findViewById(R.id.et_search);
         peopleCountText = (TextView) view.findViewById(R.id.peopleCountText);
 
         HomeActivity homeActivity = (HomeActivity) this.getActivity();
-        new JSONTask_GetPeople().execute(homeActivity.getCurrent_token());
+        if (homeActivity != null)
+            new JSONTask_GetPeople().execute(homeActivity.getCurrent_token());
 
         searchButton.setOnClickListener(searchPeople());
         clearButton.setOnClickListener(clearFilter());
@@ -147,14 +155,14 @@ public class peopleFragment extends Fragment {
                 peopleList = ParsePeopleJson(s);
                 // List of people
                 displayInList(peopleList);
-            } catch (JSONException e) {
+            } catch (JSONException | IOException e) {
                 System.out.println("Error reading people JSON");
                 System.out.println(e.toString());
             }
         }
     }
 
-    private List<People> ParsePeopleJson(String people_json) throws JSONException {
+    private List<People> ParsePeopleJson(String people_json) throws JSONException, IOException {
         List<People> parsedPeople = new ArrayList<>();
         JSONArray jsonArray = new JSONArray(people_json);
 
@@ -168,8 +176,9 @@ public class peopleFragment extends Fragment {
 
             //TODO: Get actual photo of person + convert photo string to Drawable
             Drawable dummy_photo = getResources().getDrawable(R.drawable.person_photo);
+            //Bitmap dummy_photo_bm = BitmapFactory.decodeResource(getResources(), R.drawable.person_photo);
 
-            People person = new People(firstName, lastName, email, dummy_photo);
+            People person = new People(firstName, lastName, email, photo);
             parsedPeople.add(person);
         }
 
