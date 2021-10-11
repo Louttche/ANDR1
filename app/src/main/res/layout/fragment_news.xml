@@ -2,31 +2,30 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home_layout"
+    android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="visible"
-    tools:context=".homeFragment">
+    tools:context=".newsFragment">
 
     <ImageView
-        android:id="@+id/iv_background_home"
+        android:id="@+id/iv_background"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/background"
-        android:scaleType="fitXY"
-        android:src="@drawable/login_background"
+        android:src="@android:drawable/screen_background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <WebView
-        android:id="@+id/wv_dashboard"
+    <ListView
+        android:id="@+id/lv_news"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_background_home"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_conversion_absoluteHeight="332dp"
+        tools:layout_conversion_absoluteWidth="414dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

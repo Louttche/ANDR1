@@ -9,5 +9,9 @@
         android:id="@+id/scheduleFragment"
         android:icon="@drawable/ic_schedule"
         android:title="" />
+    <item
+        android:id="@+id/newsFragment"
+        android:icon="@drawable/ic_news"
+        android:title="" />
 
 </menu>

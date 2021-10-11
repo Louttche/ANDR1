@@ -4,15 +4,17 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -110,6 +112,7 @@ public class scheduleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
@@ -120,6 +123,29 @@ public class scheduleFragment extends Fragment {
         weekdayNames.add("Friday");
         weekdayNames.add("Saturday");
         weekdayNames.add("Sunday");
+
+        // Calendar View
+        CalendarView simpleCalendarView = (CalendarView) view.findViewById(R.id.cv_schedule); // get the reference of CalendarView
+        simpleCalendarView.setVisibility(View.GONE);
+        simpleCalendarView.setFirstDayOfWeek(2); // set Monday as the first day of the week
+
+        Button calendarButton = (Button) view.findViewById(R.id.btn_calendar);
+        calendarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                simpleCalendarView.setVisibility(View.VISIBLE);
+            }
+        });
+        //long selectedDate = simpleCalendarView.getDate(); // get selected date in milliseconds // --> Get selected date
+        //simpleCalendarView.setDate(1463918226920L); // --> Set selected date
+
+        // Create onTouchListener so that clicks don't work on fragments below
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                simpleCalendarView.setVisibility(View.GONE);
+                return true;
+            }
+        });
 
         HomeActivity homeActivity = (HomeActivity) this.getActivity();
         new JSONTask_GetSchedule().execute(homeActivity.getCurrent_token());

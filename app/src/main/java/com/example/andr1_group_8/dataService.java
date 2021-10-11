@@ -4,12 +4,14 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *  Stores data to be used across all activities
@@ -22,6 +24,7 @@ public class dataService extends Service {
     private IBinder mBinder = new dataServiceBinder();
 
     private String user_token;
+    private List<News> newsList;
 
     public dataService() {
     }
@@ -29,6 +32,7 @@ public class dataService extends Service {
     @Override
     public void onCreate() {
         user_token = "invalid";
+        newsList = new ArrayList<>();
         super.onCreate();
     }
 
@@ -70,6 +74,14 @@ public class dataService extends Service {
         Log.v("dataService", "onDestroy: ");
         this.user_token = "invalid";
         super.onDestroy();
+    }
+
+    public List<News> getNewsList() {
+        return newsList;
+    }
+
+    public void setNewsList(List<News> newsList) {
+        this.newsList = newsList;
     }
 
     public class dataServiceBinder extends Binder {

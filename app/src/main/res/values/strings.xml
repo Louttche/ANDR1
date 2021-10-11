@@ -16,7 +16,6 @@
     <string name="people">People</string>
     <string name="search_hold_for_advanced_search">Search (hold for advanced search)</string>
     <string name="home">HOME</string>
-    <string name="schedule">schedule</string>
     <string name="view_people">View People</string>
     <string name="change_class">Change class</string>
     <string name="e_b71">E-B71</string>
@@ -26,8 +25,6 @@
     <string name="welcome">Welcome</string>
     <string name="login">login</string>
     <string name="service">Service</string>
-    <string name="todo">TODO</string>
-    <string name="this_weeks_schedule">This weeks schedule</string>
     <string name="view_calendar">View Calendar</string>
     <string name="fontysimage">fontysimage</string>
     <string name="fontyslogo">fontyslogo</string>
@@ -38,4 +35,6 @@
     <string name="news">NEWS</string>
     <string name="dashboard">Dashboard</string>
     <string name="background">background</string>
+    <string name="todo">TODO</string>
+    <string name="schedule">SCHEDULE</string>
 </resources>

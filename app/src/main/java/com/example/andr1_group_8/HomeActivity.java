@@ -104,7 +104,7 @@ public class HomeActivity extends AppCompatActivity implements TokenFragment
 
         switch (item.getItemId()){
             case R.id.log_out:
-                // TODO: Reset token and send back to auth page
+                // Reset token and send back to auth page
                 this.mdataService.onDestroy();
                 navController.navigate(R.id.action_homeFragment_to_authActivity);
                 finish();

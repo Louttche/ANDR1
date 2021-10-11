@@ -13,46 +13,68 @@
         app:layout_constraintEnd_toStartOf="@+id/textView" -->
 
     <ImageView
-        android:id="@+id/iv_background2"
+        android:id="@+id/imageView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/background"
         android:src="@android:drawable/screen_background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_scheduleTitle"
-        android:layout_width="300dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="16dp"
-        android:text="This week's schedule"
-        android:textAlignment="viewStart"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ListView
         android:id="@+id/lv_schedule"
-        android:layout_width="379dp"
-        android:layout_height="336dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="400dp"
+        android:layout_height="406dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_scheduleTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/searchLabel2" >
+
+    </ListView>
 
     <Button
         android:id="@+id/btn_calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#8D041B80"
         android:text="@string/view_calendar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_schedule" />
+        app:layout_constraintTop_toBottomOf="@+id/lv_schedule"
+        app:layout_constraintVertical_bias="0.027" />
+
+    <TextView
+        android:id="@+id/searchLabel2"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="20dp"
+        android:background="#A8011E68"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:text="This week's schedule:"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <CalendarView
+        android:id="@+id/cv_schedule"
+        android:layout_width="385dp"
+        android:layout_height="381dp"
+        android:background="#FFFFFF"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/lv_schedule"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lv_schedule" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,7 +11,7 @@
     tools:layout_editor_absoluteY="-49dp">
 
     <ImageView
-        android:id="@+id/iv_background"
+        android:id="@+id/imageView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@android:drawable/screen_background_light"
@@ -42,6 +42,7 @@
         android:hint="Search people"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,22 +54,25 @@
         android:layout_width="326dp"
         android:layout_height="384dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultsInfoText"
-        app:layout_constraintVertical_bias="0.0">
-
-    </ListView>
+        app:layout_constraintVertical_bias="0.0"/>
 
     <TextView
         android:id="@+id/searchLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
         android:layout_marginTop="20dp"
+        android:background="#A8011E68"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
         android:text="Filter by name:"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
