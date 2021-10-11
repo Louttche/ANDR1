@@ -23,7 +23,14 @@
             android:name=".AuthActivity"
             android:exported="true"
             android:label="@string/title_activity_auth"
-            android:theme="@style/Theme.ANDR1_Group_8.NoActionBar" />
+            android:theme="@style/Theme.ANDR1_Group_8.NoActionBar" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".ReadJson"
@@ -33,11 +40,6 @@
             android:name=".HomeActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustNothing">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
