@@ -1,3 +1,3 @@
-# ANDR1 - Group 8
+# ANDR1
 
 Android Development Project 2021
